@@ -1,0 +1,16 @@
+{
+  "name": "curriculum-seat-relay-sources",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.22.1 <23"
+  },
+  "scripts": {
+    "start": "node serve.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cheerio": "1.1.2"
+  }
+}

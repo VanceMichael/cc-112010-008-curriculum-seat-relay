@@ -1,0 +1,405 @@
+{
+  "rounds": [
+    [
+      {
+        "path": "/east",
+        "body": "<!doctype html><html lang=\"zh-CN\"><meta charset=\"utf-8\"><h1>东校校历</h1><time data-week=\"12\" datetime=\"2026-11-23\">第十二周</time><table><tr data-slot=\"A01\" data-week=\"12\" data-day=\"1\" data-period=\"1\" data-held=\"core\"><td>语文</td></tr><tr data-slot=\"E17\" data-week=\"12\" data-day=\"1\" data-period=\"3\" data-joint=\"J7\"><td>工业图学</td></tr><tr data-slot=\"E18\" data-week=\"12\" data-day=\"1\" data-period=\"4\" data-joint=\"J9\"><td>环境实践</td></tr></table></html>",
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {
+          "content-type": "text/html; charset=utf-8"
+        }
+      },
+      {
+        "path": "/west",
+        "body": "<!doctype html><html lang=\"zh-CN\"><meta charset=\"utf-8\"><h1>西校校历</h1><time data-week=\"11\" datetime=\"2026-11-23\">第十一周</time><table><tr data-slot=\"W04\" data-week=\"11\" data-day=\"1\" data-period=\"1\" data-held=\"core\"><td>数学</td></tr><tr data-slot=\"W29\" data-week=\"11\" data-day=\"1\" data-period=\"5\"><td>陶艺</td></tr><tr data-slot=\"W21\" data-week=\"11\" data-day=\"1\" data-period=\"3\" data-joint=\"J7\"><td>工业图学</td></tr><tr data-slot=\"W22\" data-week=\"11\" data-day=\"1\" data-period=\"4\" data-joint=\"J9\"><td>环境实践</td></tr><tr data-slot=\"W28\" data-week=\"11\" data-day=\"1\" data-period=\"5\"><td>色彩</td></tr></table></html>",
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {
+          "content-type": "text/html; charset=utf-8"
+        }
+      },
+      {
+        "path": "/seats",
+        "body": {
+          "version": 4,
+          "common": [
+            {
+              "id": "J7",
+              "total": 2,
+              "allocation": {
+                "east": 1,
+                "west": 1
+              },
+              "occupied": [
+                {
+                  "student": "S3",
+                  "school": "east"
+                },
+                {
+                  "student": "S2",
+                  "school": "west"
+                }
+              ],
+              "reservedOpenAt": "2026-11-22T11:00+08:00",
+              "allowedChannel": "跨校审批"
+            },
+            {
+              "id": "J9",
+              "total": 1,
+              "allocation": {
+                "east": 1,
+                "west": 0
+              },
+              "occupied": [
+                {
+                  "student": "S1",
+                  "school": "east"
+                }
+              ]
+            },
+            {
+              "id": "W28",
+              "total": 2,
+              "allocation": {
+                "west": 2
+              },
+              "occupied": []
+            }
+          ]
+        },
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {}
+      },
+      {
+        "path": "/changes",
+        "body": {
+          "now": "2026-11-22T09:30+08:00",
+          "requests": [
+            {
+              "student": "S1",
+              "school": "east",
+              "core": [
+                "A01"
+              ],
+              "from": "J9",
+              "to": "J7"
+            },
+            {
+              "student": "S2",
+              "school": "west",
+              "from": "J7",
+              "to": "J9",
+              "channel": "跨校审批"
+            },
+            {
+              "student": "S4",
+              "school": "west",
+              "from": "W29",
+              "to": "W28"
+            }
+          ]
+        },
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {}
+      },
+      {
+        "path": "/confirmations",
+        "body": [],
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {}
+      },
+      {
+        "path": "/enroll",
+        "body": {
+          "state": "预留未开放",
+          "version": 4
+        },
+        "status": 409,
+        "method": "POST",
+        "request": {
+          "version": 4,
+          "changes": [
+            {
+              "student": "S1",
+              "from": "J9",
+              "to": "J7"
+            },
+            {
+              "student": "S2",
+              "from": "J7",
+              "to": "J9"
+            }
+          ]
+        },
+        "headers": {}
+      }
+    ],
+    [
+      {
+        "path": "/west",
+        "body": "<!doctype html><html lang=\"zh-CN\"><meta charset=\"utf-8\"><h1>西校校历</h1><time data-week=\"11\" datetime=\"2026-11-23\">第十一周</time><table><tr data-slot=\"W04\" data-week=\"11\" data-day=\"1\" data-period=\"1\" data-held=\"core\"><td>数学</td></tr><tr data-slot=\"W29\" data-week=\"11\" data-day=\"1\" data-period=\"5\"><td>陶艺</td></tr><tr data-slot=\"W21\" data-week=\"11\" data-day=\"1\" data-period=\"3\" data-joint=\"J7\"><td>工业图学</td></tr><tr data-slot=\"W22\" data-week=\"11\" data-day=\"1\" data-period=\"4\" data-joint=\"J9\"><td>环境实践</td></tr><tr data-slot=\"W28\" data-week=\"11\" data-day=\"1\" data-period=\"5\"><td>色彩</td></tr></table><article data-slot=\"W22\" data-date=\"2026-11-23\" data-new-period=\"1\">改上第一节</article></html>",
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {
+          "content-type": "text/html; charset=utf-8"
+        }
+      },
+      {
+        "path": "/seats",
+        "body": {
+          "version": 5,
+          "common": [
+            {
+              "id": "J7",
+              "total": 2,
+              "allocation": {
+                "east": 1,
+                "west": 1
+              },
+              "occupied": [
+                {
+                  "student": "S3",
+                  "school": "east"
+                },
+                {
+                  "student": "S2",
+                  "school": "west"
+                }
+              ]
+            },
+            {
+              "id": "J9",
+              "total": 1,
+              "allocation": {
+                "east": 1,
+                "west": 0
+              },
+              "occupied": [
+                {
+                  "student": "S1",
+                  "school": "east"
+                }
+              ],
+              "reservedOpenAt": "2026-11-22T11:00+08:00",
+              "allowedChannel": "跨校审批"
+            },
+            {
+              "id": "W28",
+              "total": 2,
+              "allocation": {
+                "west": 2
+              },
+              "occupied": []
+            }
+          ]
+        },
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {}
+      },
+      {
+        "path": "/changes",
+        "body": {
+          "now": "2026-11-22T11:45+08:00",
+          "requests": [
+            {
+              "student": "S1",
+              "school": "east",
+              "core": [
+                "A01"
+              ],
+              "from": "J9",
+              "to": "J7"
+            },
+            {
+              "student": "S2",
+              "school": "west",
+              "from": "J7",
+              "to": "J9",
+              "channel": "跨校审批",
+              "core": [
+                "W04"
+              ]
+            },
+            {
+              "student": "S4",
+              "school": "west",
+              "from": "W29",
+              "to": "W28"
+            }
+          ]
+        },
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {}
+      },
+      {
+        "path": "/enroll",
+        "body": {
+          "state": "已确认",
+          "group": "G16",
+          "version": 5
+        },
+        "status": 200,
+        "method": "POST",
+        "request": {
+          "version": 5,
+          "changes": [
+            {
+              "student": "S4",
+              "from": "W29",
+              "to": "W28"
+            }
+          ]
+        },
+        "headers": {}
+      },
+      {
+        "path": "/confirmations",
+        "body": [
+          {
+            "group": "G-11",
+            "effective": true,
+            "rows": [
+              {
+                "student": "S5",
+                "from": "J1",
+                "to": "J7",
+                "view": [
+                  "west"
+                ]
+              }
+            ]
+          }
+        ],
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {}
+      }
+    ],
+    [
+      {
+        "path": "/west",
+        "body": "<!doctype html><html lang=\"zh-CN\"><meta charset=\"utf-8\"><h1>西校校历</h1><time data-week=\"11\" datetime=\"2026-11-23\">第十一周</time><table><tr data-slot=\"W04\" data-week=\"11\" data-day=\"1\" data-period=\"1\" data-held=\"core\"><td>数学</td></tr><tr data-slot=\"W21\" data-week=\"11\" data-day=\"1\" data-period=\"3\" data-joint=\"J7\"><td>工业图学</td></tr><tr data-slot=\"W22\" data-week=\"11\" data-day=\"1\" data-period=\"4\" data-joint=\"J9\"><td>环境实践</td></tr></table></html>",
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {
+          "content-type": "text/html; charset=utf-8"
+        }
+      },
+      {
+        "path": "/seats",
+        "body": {
+          "version": 6,
+          "common": [
+            {
+              "id": "J7",
+              "total": 1,
+              "allocation": {
+                "east": 1,
+                "west": 0
+              },
+              "occupied": [
+                {
+                  "student": "S2",
+                  "school": "west"
+                }
+              ]
+            },
+            {
+              "id": "J9",
+              "total": 1,
+              "allocation": {
+                "east": 0,
+                "west": 1
+              },
+              "occupied": [
+                {
+                  "student": "S1",
+                  "school": "east"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {}
+      },
+      {
+        "path": "/enroll",
+        "body": {
+          "state": "已确认",
+          "group": "G17",
+          "version": 6
+        },
+        "status": 200,
+        "method": "POST",
+        "request": {
+          "version": 6,
+          "changes": [
+            {
+              "student": "S1",
+              "from": "J9",
+              "to": "J7"
+            },
+            {
+              "student": "S2",
+              "from": "J7",
+              "to": "J9"
+            }
+          ]
+        },
+        "headers": {}
+      },
+      {
+        "path": "/confirmations",
+        "body": [
+          {
+            "group": "G17",
+            "effective": true,
+            "rows": [
+              {
+                "student": "S1",
+                "from": "J9",
+                "to": "J7",
+                "view": [
+                  "east",
+                  "west"
+                ]
+              },
+              {
+                "student": "S2",
+                "from": "J7",
+                "to": "J9",
+                "view": [
+                  "west"
+                ]
+              }
+            ]
+          }
+        ],
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {}
+      }
+    ]
+  ],
+  "assets": {}
+}
