@@ -4,7 +4,7 @@
 
 使用 Node.js 22.23.4。执行 `npm ci` 后运行 `npm start`，资料源默认监听本机 4173 端口，可用 `PORT` 指定端口。
 
-`GET /east` 和 `GET /west` 是可浏览的资料入口。`GET /ready` 返回当前发布序号和总发布次数。`PUT /replay` 接受 JSON `{"step":1}`，用于在联调时将来源切到指定发布时刻。发布序号从 0 开始。每次发布只列变化的来源，应答沿用上一轮存在且未被替换的地址。收到 404 并不代表之前的历史资料从业务上被撤回。重新启动服务从第 0 次发布开始。
+`GET /east` 和 `GET /west` 是可浏览的资料入口。`GET /ready` 或 `GET /health` 返回当前发布序号和总发布次数。`PUT /replay` 接受 JSON `{"step":1}`，用于在联调时将来源切到指定发布时刻。发布序号从 0 开始。每次发布只列变化的来源，应答沿用上一轮存在且未被替换的地址。收到 404 并不代表之前的历史资料从业务上被撤回。重新启动服务从第 0 次发布开始。
 
 /east 和 /west 使用 HTML 列出校历、课程和调课。课程行的 data-slot 指学校内部编号，data-joint 上的同一个值由联开组确认。/seats 给共用班面向各校的席位分配和合并发布版本，reservedOpenAt 后指定渠道才能申领未用预留。/changes 是教务员计划。/confirmations 可领取门户确认组；组内 rows 为空的状态表示未生效。POST /enroll 接受 version 和有序 changes，其中每条需要列 student、from、to；409 时 门户不会写入任何席位。
 转课提交数组按 student 代号升序排列。教学周从各校标出的周一日期开始，data-day 从 1 起数，data-period 是同一日的课节。调课条目只覆盖所指日期、原课节和课程展示号。确认组的 view 表示同步到的界面，effective 才表示已生效。
