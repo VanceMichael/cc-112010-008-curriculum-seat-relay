@@ -9,4 +9,6 @@
 /east 和 /west 使用 HTML 列出校历、课程和调课。课程行的 data-slot 指学校内部编号，data-joint 上的同一个值由联开组确认。/seats 给共用班面向各校的席位分配和合并发布版本，reservedOpenAt 后指定渠道才能申领未用预留。/changes 是教务员计划。/confirmations 可领取门户确认组；组内 rows 为空的状态表示未生效。POST /enroll 接受 version 和有序 changes，其中每条需要列 student、from、to；409 时 门户不会写入任何席位。
 转课提交数组按 student 代号升序排列。教学周从各校标出的周一日期开始，data-day 从 1 起数，data-period 是同一日的课节。调课条目只覆盖所指日期、原课节和课程展示号。确认组的 view 表示同步到的界面，effective 才表示已生效。
 
+回条出现 pending 时 request 保留原转课组，尚无生效席位。门户可在下一次发布才给出同组的有效确认。其他独立确认组在目录中继续可查询。
+
 运行 `npm test` 可校验资料源实际应答。样本内容存放在 `samples/`，开发时通过各来源的本地地址进行联调。

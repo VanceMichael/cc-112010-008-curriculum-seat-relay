@@ -282,6 +282,20 @@
                 ]
               }
             ]
+          },
+          {
+            "group": "G16",
+            "effective": true,
+            "rows": [
+              {
+                "student": "S4",
+                "from": "W29",
+                "to": "W28",
+                "view": [
+                  "west"
+                ]
+              }
+            ]
           }
         ],
         "status": 200,
@@ -293,7 +307,7 @@
     [
       {
         "path": "/west",
-        "body": "<!doctype html><html lang=\"zh-CN\"><meta charset=\"utf-8\"><h1>西校校历</h1><time data-week=\"11\" datetime=\"2026-11-23\">第十一周</time><table><tr data-slot=\"W04\" data-week=\"11\" data-day=\"1\" data-period=\"1\" data-held=\"core\"><td>数学</td></tr><tr data-slot=\"W21\" data-week=\"11\" data-day=\"1\" data-period=\"3\" data-joint=\"J7\"><td>工业图学</td></tr><tr data-slot=\"W22\" data-week=\"11\" data-day=\"1\" data-period=\"4\" data-joint=\"J9\"><td>环境实践</td></tr></table></html>",
+        "body": "<!doctype html><html lang=\"zh-CN\"><meta charset=\"utf-8\"><h1>西校校历</h1><time data-week=\"11\" datetime=\"2026-11-23\">第十一周</time><table><tr data-slot=\"W04\" data-week=\"11\" data-day=\"1\" data-period=\"1\" data-held=\"core\"><td>数学</td></tr><tr data-slot=\"W29\" data-week=\"11\" data-day=\"1\" data-period=\"5\"><td>陶艺</td></tr><tr data-slot=\"W21\" data-week=\"11\" data-day=\"1\" data-period=\"3\" data-joint=\"J7\"><td>工业图学</td></tr><tr data-slot=\"W22\" data-week=\"11\" data-day=\"1\" data-period=\"4\" data-joint=\"J9\"><td>环境实践</td></tr><tr data-slot=\"W28\" data-week=\"11\" data-day=\"1\" data-period=\"5\"><td>色彩</td></tr></table></html>",
         "status": 200,
         "method": "GET",
         "request": null,
@@ -333,6 +347,19 @@
                   "school": "east"
                 }
               ]
+            },
+            {
+              "id": "W28",
+              "total": 2,
+              "allocation": {
+                "west": 2
+              },
+              "occupied": [
+                {
+                  "student": "S4",
+                  "school": "west"
+                }
+              ]
             }
           ]
         },
@@ -344,11 +371,10 @@
       {
         "path": "/enroll",
         "body": {
-          "state": "已确认",
-          "group": "G17",
+          "state": "确认回条暂不可读",
           "version": 6
         },
-        "status": 200,
+        "status": 503,
         "method": "POST",
         "request": {
           "version": 6,
@@ -370,6 +396,93 @@
       {
         "path": "/confirmations",
         "body": [
+          {
+            "group": "G17",
+            "effective": false,
+            "pending": true,
+            "rows": [],
+            "request": [
+              {
+                "student": "S1",
+                "from": "J9",
+                "to": "J7"
+              },
+              {
+                "student": "S2",
+                "from": "J7",
+                "to": "J9"
+              }
+            ]
+          },
+          {
+            "group": "G-11",
+            "effective": true,
+            "rows": [
+              {
+                "student": "S5",
+                "from": "J1",
+                "to": "J7",
+                "view": [
+                  "west"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "G16",
+            "effective": true,
+            "rows": [
+              {
+                "student": "S4",
+                "from": "W29",
+                "to": "W28",
+                "view": [
+                  "west"
+                ]
+              }
+            ]
+          }
+        ],
+        "status": 200,
+        "method": "GET",
+        "request": null,
+        "headers": {}
+      }
+    ],
+    [
+      {
+        "method": "GET",
+        "path": "/confirmations",
+        "status": 200,
+        "body": [
+          {
+            "group": "G-11",
+            "effective": true,
+            "rows": [
+              {
+                "student": "S5",
+                "from": "J1",
+                "to": "J7",
+                "view": [
+                  "west"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "G16",
+            "effective": true,
+            "rows": [
+              {
+                "student": "S4",
+                "from": "W29",
+                "to": "W28",
+                "view": [
+                  "west"
+                ]
+              }
+            ]
+          },
           {
             "group": "G17",
             "effective": true,
@@ -394,8 +507,6 @@
             ]
           }
         ],
-        "status": 200,
-        "method": "GET",
         "request": null,
         "headers": {}
       }

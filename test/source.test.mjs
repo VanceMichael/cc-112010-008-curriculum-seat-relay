@@ -33,7 +33,7 @@ async function view(origin, step) {
 test('逐次发布可从资料源取回', async t => {
   const origin = await openSource(t)
   const ready = await request(origin, '/ready')
-  assert.deepEqual(await ready.json(), { status: 'ready', step: 0, steps: entries.length })
+  assert.deepEqual(await ready.json(), { status: 'ready', step: 0, steps: release.rounds.length })
   for (const [step, routes] of entries.entries()) {
     await view(origin, step)
     for (const entry of release.rounds[step].filter(row => routes.includes(row.path))) {
@@ -75,4 +75,21 @@ test('两校联开课用不同课程编号和周号', async t => {
   assert.equal(east('[data-joint=J7]').attr('data-slot'), 'E17')
   assert.equal(west('[data-joint=J7]').attr('data-slot'), 'W21')
   assert.equal(east('time').attr('datetime'), west('time').attr('datetime'))
+})
+
+test('整组待确认期间既有独立确认仍可读', async t => {
+  const origin = await openSource(t)
+  await view(origin, 2)
+  const receipt = async () => (await request(origin, '/confirmations')).json()
+  const awaiting = await receipt()
+  assert.ok(awaiting.find(x => x.group === 'G16').effective)
+  const group = awaiting.find(x => x.group === 'G17')
+  assert.equal(group.pending, true)
+  assert.equal(group.request.length, 2)
+  assert.deepEqual(group.rows, [])
+  await view(origin, 3)
+  const confirmed = (await receipt()).find(x => x.group === 'G17')
+  assert.equal(confirmed.effective, true)
+  assert.equal(confirmed.rows.length, 2)
+  assert.deepEqual(confirmed.rows.find(x => x.student === 'S2').view, ['west'])
 })
