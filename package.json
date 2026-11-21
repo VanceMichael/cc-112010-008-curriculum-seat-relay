@@ -8,6 +8,9 @@
   },
   "scripts": {
     "start": "node serve.mjs",
+    "plan": "node bin/edu.mjs plan",
+    "handover": "node bin/edu.mjs handover",
+    "check": "node bin/edu.mjs check",
     "test": "node --test"
   },
   "dependencies": {
